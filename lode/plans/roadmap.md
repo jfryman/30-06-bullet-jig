@@ -10,6 +10,13 @@ Current open work. Delete items as they close; this file is state, not history.
   [../process/verification.md](../process/verification.md). Awaiting caliper
   readings for seated apex height and the nest 1 -> nest 7 tick span.
 
+- **Spray-stand first article.** `stl/spray-stand-7nest.stl` exists but is
+  unprinted. Print one and confirm a round drops nose-first and hangs by the
+  shoulder (seat at z ~52) with the neck guided steady in the bore, marking
+  window standing clear above the deck. If it wobbles, tighten `neck_clr`; if it
+  drops too deep or too shallow, that traces to the bore radius vs. the shoulder.
+  See [../fixture/spray-stand.md](../fixture/spray-stand.md).
+
 ## Decisions pending measurement
 
 - **Cradle clearance.** `clearance = 0.35` suits factory brass. If first-article

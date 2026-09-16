@@ -13,7 +13,9 @@ flowchart TB
 ```
 
 The base never moves once taped. Carriers are consumable fixturing: print
-several, load one set while another is under the laser, swap them.
+several, load one set while another is under the laser, swap them. A separate
+**spray stand** holds a carrier's worth of rounds nose-down for clear-coating
+after marking; it is downstream of the base/carrier, not part of the assembly.
 
 ## Files
 
@@ -21,6 +23,7 @@ several, load one set while another is under the laser, swap them.
 - [base-tray.md](base-tray.md) - the taped-down tray
 - [registration.md](registration.md) - keying, fiducials, and why nominal
   coordinates must not be trusted
+- [spray-stand.md](spray-stand.md) - nose-down shoulder-seat stand for clear-coating
 
 ## Part sizes
 
@@ -29,6 +32,7 @@ several, load one set while another is under the laser, swap them.
 | `stl/carrier-7nest.stl` | 104 x 126 x 10 | `nest_count = 7` |
 | `stl/base-14up.stl` | 130.8 x 285.6 x 8 | `pockets_x=1, pockets_y=2` |
 | `stl/base-28up.stl` | 241.6 x 285.6 x 8 | `pockets_x=2, pockets_y=2` |
+| `stl/spray-stand-7nest.stl` | 185 x 33 x 39 | `nest_count = 7` (own `.scad`) |
 
 ## Related
 

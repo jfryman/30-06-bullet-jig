@@ -96,6 +96,7 @@ upward, so the model is overhang-free by construction.
 | `stl/carrier-7nest.stl` | 104 × 126 × 10 mm | Print 4–8. Two fit side by side on the XL. |
 | `stl/base-14up.stl` | 130.8 × 285.6 × 8 mm | 2 carriers, 14 cartridges per load |
 | `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load — still fits both machines |
+| `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand — holds 7 nose-down. See [Clear-coating](#clear-coating). |
 
 * 0.2 mm layers, 3 perimeters, 15–20 % gyroid infill.
 * **Brim on the base.** It is a large thin plate and wants to lift at the corners;
@@ -148,6 +149,34 @@ At 28-up, 150 cartridges is about 6 loads per side.
 > round cartridge. If you want it exact, engrave both sides in a single program
 > with the cartridge rotated between two fixed stops — but for 150 pieces on a
 > deadline, by eye is the right call.
+
+---
+
+## Clear-coating
+
+Once both sides are marked, the cartridges get a protective clear topcoat. The
+**spray stand** (`spray-stand.scad`, its own model) holds a carrier's worth
+**nose-down**, so a single rotating pass covers the whole circumference — both
+marked faces at once, no flip-and-redry.
+
+Each round drops nose-first into a bore. The **shoulder** catches on the bore lip
+as a self-centring stop — it seats at ~52 mm from the head, just past the 46 mm
+marking window, so nothing coating-critical is touched — while the neck stays
+guided in the bore below. The head and the full marking window stand up in free
+air; the bullet tip hangs through the deck into the open skirt to drain and dry
+without touching anything.
+
+Nose-down on purpose: a round balanced head-down on its rim ring is a tall
+inverted pendulum and tips at a touch. Hanging by the shoulder with the neck
+guided is stable and self-righting.
+
+```bash
+openscad -D 'part="stand"' -o stl/spray-stand-7nest.stl spray-stand.scad
+```
+
+Prints flat, base down, **no supports** — the funnel and bore open upward. If a
+round wobbles, drop `neck_clr`; the skirt height sizes itself so the tip always
+clears the bench.
 
 ---
 
@@ -215,7 +244,7 @@ and it costs you one line.
 
 | | |
 |---|---|
-| This jig (`bullet-jig.scad`, `verify.scad`, `stl/`, docs) | [CC BY 4.0](LICENSE) |
+| This jig (`bullet-jig.scad`, `spray-stand.scad`, `verify.scad`, `stl/`, docs) | [CC BY 4.0](LICENSE) |
 | `Cartridge.stl` | CC BY 4.0, © is-serp — see Credits above |
 
 Use it, sell prints of it, modify it; just keep the attribution. To publish under

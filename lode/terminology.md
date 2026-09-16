@@ -52,5 +52,14 @@ Domain language for this project. Cartridge anatomy first, then fixture parts.
 
 - **Laser spray / marking spray** - CerMark-type coating that bonds to metal
   under a CO2 beam. Applied before loading, never on the jig.
+- **Clear coat / topcoat** - a protective clear finish rattle-canned over the
+  finished marks, after marking. A different coating at a different step from the
+  marking spray; applied with the round in the spray stand, not the jig.
+- **Spray stand** - the companion fixture that holds a carrier's worth of rounds
+  nose-down for clear-coating. See
+  [fixture/spray-stand.md](fixture/spray-stand.md).
+- **Shoulder seat** - how the spray stand holds a round: dropped nose-first, the
+  shoulder cone catches on a bore lip while the neck is guided in the bore below.
+  Nose-down because nose-up (rim ring, no upper guide) is too tippy.
 - **Fast axis** - the laser's raster direction (X on the P2). Text runs along it.
 - **First article** - the first part off the printer, checked before a batch.
