@@ -216,6 +216,13 @@ openscad -D 'part="plate"'                     -o stl/display-plate-17up.stl    
 openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top-2x22.stl display-plate.scad
 ```
 
+For the top plate, a ready-to-print slicer project is included:
+**`stl/display-plate-top-2x22.3mf`**, sliced for the **Original Prusa XL**
+(multi-tool, 0.4 mm nozzle) as a **multi-color** print — the plate body in one
+filament and the centre dedication in a contrasting colour, so *In Memory of
+Allen Akin* and *Spirit in the Sky* read against the plate. Slice the `.stl` for
+any other printer.
+
 If a casing still binds, it is a slop problem, not a geometry one — raise
 `round_clr` (radial) or `axial_clr` (length). Set `casing_len` to your measured
 brass; the render echoes the nominal channel length so you can check it against

@@ -91,6 +91,12 @@ its mirror (`cradle_cut(cy)`), so a casing seats level whichever way it points.
 Flat, base down, **no supports** - the cradles open upward. The `demo` part shows
 each row's base plus one nested layer.
 
+A ready-to-print slicer project ships for the top variant:
+`stl/display-plate-top-2x22.3mf`, a PrusaSlicer project for the **Original Prusa
+XL** (multi-tool, 0.4 mm nozzle), sliced **multi-colour** so the centre
+dedication prints in a contrasting filament against the plate body. It carries
+the same `variant="top"` mesh; the `.stl` beside it is for any other printer.
+
 ## Related
 
 - [../geometry/cartridge-profile.md](../geometry/cartridge-profile.md) - the
