@@ -11,7 +11,7 @@ failure at step 1 saves you measuring anything below it.
 Put it on glass or a known-flat surface before anything else. It is a
 130.8 × 285.6 × 3 mm plate and it is the one part that *must not rock*.
 
-If a corner lifts, stop — nothing below this is worth measuring, because every
+If a corner lifts, stop - nothing below this is worth measuring, because every
 other number is referenced off this plane. Reprint with a brim and more bed
 adhesion.
 
@@ -21,7 +21,7 @@ Clearance is **0.4 mm per side**. It should fall in under its own weight, seat
 flat, and show one unmistakable keyed corner.
 
 If it binds, that is shrinkage on the 126 mm axis. Raise `pocket_clr` and reprint
-**the carrier only** — the base is unaffected.
+**the carrier only** - the base is unaffected.
 
 ## 3. Does a cartridge drop into a cradle and seat against the head stop?
 
@@ -32,7 +32,7 @@ If it binds, set `clearance = 0.50` and reprint the carrier. Fired brass is
 expanded and often needs this. Again, the base is unaffected, so you do not lose
 that print.
 
-## 4. Measure the tick span — the one that matters most
+## 4. Measure the tick span - the one that matters most
 
 | | |
 |---|---|
@@ -44,7 +44,7 @@ that print.
 2.67 mm out per nest, which is a miss, not a rounding error.
 
 Whatever that 96.000 mm actually measures is your real pitch. Program that
-number, not the nominal 16.000 — a 126 mm PLA part shrinks a few tenths and the
+number, not the nominal 16.000 - a 126 mm PLA part shrinks a few tenths and the
 engraved ticks are there precisely so alignment is empirical.
 
 ## 5. Seated apex height, and levelness
@@ -54,7 +54,7 @@ body.
 
 Measure it at **both ends** of the marking window, not once. Two equal readings
 are your proof that the 0.4775° tilt survived the print. A difference of more
-than a few hundredths means the carrier is not sitting flat — go back to step 1.
+than a few hundredths means the carrier is not sitting flat - go back to step 1.
 
 An over-extruded cradle holds rounds slightly high. That is a fixed focus offset,
 not a defect; just set focus from the measured value rather than the nominal one.

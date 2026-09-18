@@ -3,7 +3,7 @@
 > ### In memory of Allen Akin
 > *September 8, 2026*
 >
-> This fixture was built to mark the cartridges for his funeral — his name on one
+> This fixture was built to mark the cartridges for his funeral - his name on one
 > side, *Spirit in the Sky* on the other. Both are engraved into the base flange,
 > so the fixture carries them too. It is published here in the hope that it saves
 > someone else a difficult week.
@@ -34,7 +34,7 @@ Two parts:
 ![base plan](docs/base-plan.png)
 
 Print several carriers. Load one set off the machine while another set is being
-marked, then swap them — the keyed pockets mean a carrier can only ever seat one
+marked, then swap them - the keyed pockets mean a carrier can only ever seat one
 way, so the laser program never has to be re-registered.
 
 ### The level-surface trick
@@ -64,7 +64,7 @@ when `tan α = k`. Measured against the supplied mesh, across the whole case bod
  non-flatness = 0.0061 mm   (0.380 mm if untilted)
 ```
 
-Six microns — an order of magnitude below anything an FDM printer can hold, and
+Six microns - an order of magnitude below anything an FDM printer can hold, and
 irrelevant next to the depth of field of a CO₂ lens.
 
 The tilt is also what guarantees the requirement that a cartridge never nests
@@ -88,23 +88,23 @@ lines. They cross the cradles, so they read as dashes between nests.
 
 ## Printing
 
-Prusa XL, PLA, **no supports** — the cradle is a surface of revolution opening
+Prusa XL, PLA, **no supports** - the cradle is a surface of revolution opening
 upward, so the model is overhang-free by construction.
 
 | File | Size | Notes |
 |---|---|---|
 | `stl/carrier-7nest.stl` | 104 × 126 × 10 mm | Print 4–8. Two fit side by side on the XL. |
 | `stl/base-14up.stl` | 130.8 × 285.6 × 8 mm | 2 carriers, 14 cartridges per load |
-| `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load — still fits both machines |
-| `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand — holds 7 nose-down. See [Clear-coating](#clear-coating). |
-| `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer — one row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
-| `stl/display-plate-top-2x22.stl` | 267.1 × 165.5 × 9 mm | Chest-top display — two rows of 22. See [Displaying the casings](#displaying-the-casings). |
+| `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load - still fits both machines |
+| `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand - holds 7 nose-down. See [Clear-coating](#clear-coating). |
+| `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer - one row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
+| `stl/display-plate-top-2x22.stl` | 267.1 × 165.5 × 9 mm | Chest-top display - two rows of 22. See [Displaying the casings](#displaying-the-casings). |
 
 * 0.2 mm layers, 3 perimeters, 15–20 % gyroid infill.
 * **Brim on the base.** It is a large thin plate and wants to lift at the corners;
   it has to sit dead flat on the bed.
 * Print carriers exactly as modelled, cradles facing up.
-* PLA is fine — nothing here gets hot. PETG if you would rather it not scorch.
+* PLA is fine - nothing here gets hot. PETG if you would rather it not scorch.
 
 Before committing a batch, work through
 **[docs/acceptance-check.md](docs/acceptance-check.md)** on the first carrier and
@@ -119,14 +119,14 @@ fast axis and the nests spread across the 308 mm axis.
 
 ## Setting up on the xTool P2
 
-1. **Square the base** to the gantry using its long straight edge — the flange is
+1. **Square the base** to the gantry using its long straight edge - the flange is
    engraved `SQUARE THIS EDGE`. Tape it down through the flange, outside the walls.
 2. **Do not trust nominal coordinates.** A 126 mm PLA part shrinks by a few
    tenths, so the real nest pitch will not be exactly 16.000 mm. Jog the red dot
    to the engraved centreline tick on nest 1 and on nest 7, and derive the pitch
    from the actual printed part. This is the single most important setup step.
 3. **Set focus from the marking surface**, nominally 18.660 mm above the bed.
-   Verify it on the real thing with calipers — an over-extruded cradle will hold
+   Verify it on the real thing with calipers - an over-extruded cradle will hold
    the cartridges slightly high.
 4. Centre the text on the heavy engraved line, 26 mm ahead of the case head.
 
@@ -149,7 +149,7 @@ At 28-up, 150 cartridges is about 6 loads per side.
 
 > On the flip: rolling by eye is good to a few degrees, which is invisible on a
 > round cartridge. If you want it exact, engrave both sides in a single program
-> with the cartridge rotated between two fixed stops — but for 150 pieces on a
+> with the cartridge rotated between two fixed stops - but for 150 pieces on a
 > deadline, by eye is the right call.
 
 ---
@@ -158,12 +158,12 @@ At 28-up, 150 cartridges is about 6 loads per side.
 
 Once both sides are marked, the cartridges get a protective clear topcoat. The
 **spray stand** (`spray-stand.scad`, its own model) holds a carrier's worth
-**nose-down**, so a single rotating pass covers the whole circumference — both
+**nose-down**, so a single rotating pass covers the whole circumference - both
 marked faces at once, no flip-and-redry.
 
 Each round drops nose-first into a bore. The **shoulder** catches on the bore lip
-as a self-centring stop — it seats at ~52 mm from the head, just past the 46 mm
-marking window, so nothing coating-critical is touched — while the neck stays
+as a self-centring stop - it seats at ~52 mm from the head, just past the 46 mm
+marking window, so nothing coating-critical is touched - while the neck stays
 guided in the bore below. The head and the full marking window stand up in free
 air; the bullet tip hangs through the deck into the open skirt to drain and dry
 without touching anything.
@@ -176,7 +176,7 @@ guided is stable and self-righting.
 openscad -D 'part="stand"' -o stl/spray-stand-7nest.stl spray-stand.scad
 ```
 
-Prints flat, base down, **no supports** — the funnel and bore open upward. If a
+Prints flat, base down, **no supports** - the funnel and bore open upward. If a
 round wobbles, drop `neck_clr`; the skirt height sizes itself so the tip always
 clears the bench.
 
@@ -187,7 +187,7 @@ clears the bench.
 For handing the fired casings out as party favours, the **display plate**
 (`display-plate.scad`, its own model) is an organizer that carries casings on
 their sides. Because a row sits in fixed cradles, more casings **nest in the
-valleys between them** and the pile self-stacks into an open pyramid — cannonball
+valleys between them** and the pile self-stacks into an open pyramid - cannonball
 fashion. One model, two footprints via `variant`:
 
 | `variant` | Fits | Holds |
@@ -195,7 +195,7 @@ fashion. One model, two footprints via `variant`:
 | `drawer` (default) | Mini tool-chest **drawer**, 8.5″ wide | one row of **17** |
 | `top` | Tool-chest **top**, 10¾″ × 6¾″ | two rows of **22** |
 
-*(23 per row only fits with the casings dead-touching and almost no border — they
+*(23 per row only fits with the casings dead-touching and almost no border - they
 sit fine bare on the top at that point, so the plate holds a comfortable 22.)*
 
 Two ideas keep the base tidy:
@@ -218,15 +218,15 @@ openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top-2x22.stl
 
 For the top plate, a ready-to-print slicer project is included:
 **`stl/display-plate-top-2x22.3mf`**, sliced for the **Original Prusa XL**
-(multi-tool, 0.4 mm nozzle) as a **multi-color** print — the plate body in one
+(multi-tool, 0.4 mm nozzle) as a **multi-color** print - the plate body in one
 filament and the centre dedication in a contrasting colour, so *In Memory of
 Allen Akin* and *Spirit in the Sky* read against the plate. Slice the `.stl` for
 any other printer.
 
-If a casing still binds, it is a slop problem, not a geometry one — raise
+If a casing still binds, it is a slop problem, not a geometry one - raise
 `round_clr` (radial) or `axial_clr` (length). Set `casing_len` to your measured
 brass; the render echoes the nominal channel length so you can check it against
-calipers. Prints flat, base down, **no supports** — the cradles open upward.
+calipers. Prints flat, base down, **no supports** - the cradles open upward.
 
 ---
 
@@ -256,8 +256,8 @@ The ones worth touching:
 
 ### Verification
 
-`verify.scad` intersects the supplied `Cartridge.stl` — the real mesh, not the
-transcribed profile — against the cradle at its nominal position. The result must
+`verify.scad` intersects the supplied `Cartridge.stl` - the real mesh, not the
+transcribed profile - against the cradle at its nominal position. The result must
 be empty; anything else means the cradle is cut too tight somewhere.
 
 ```bash
@@ -269,7 +269,7 @@ openscad -o /dev/null verify.scad     # expect: "Current top level object is emp
 ## Safety
 
 Mark **fired brass or inert dummy rounds only.** Do not put live ammunition under
-a laser — primers and propellant do not care that the beam is only meant to reach
+a laser - primers and propellant do not care that the beam is only meant to reach
 the case wall.
 
 ---
@@ -287,7 +287,7 @@ The measured profile was cross-checked against published SAAMI .30-06 Springfiel
 dimensions (rim Ø12.014, body Ø11.964 → Ø11.204, neck Ø8.634, COAL 84.84) before
 being used to cut the cradle.
 
-If you publish a remix of this jig, carry that credit forward — CC BY requires it,
+If you publish a remix of this jig, carry that credit forward - CC BY requires it,
 and it costs you one line.
 
 ## License
@@ -295,8 +295,8 @@ and it costs you one line.
 | | |
 |---|---|
 | This jig (`bullet-jig.scad`, `spray-stand.scad`, `display-plate.scad`, `verify.scad`, `stl/`, docs) | [CC BY 4.0](LICENSE) |
-| `Cartridge.stl` | CC BY 4.0, © is-serp — see Credits above |
+| `Cartridge.stl` | CC BY 4.0, © is-serp - see Credits above |
 
 Use it, sell prints of it, modify it; just keep the attribution. To publish under
 different terms, replace `LICENSE` and set the license field on your Printables
-listing to match — but note you cannot relicense `Cartridge.stl` itself.
+listing to match - but note you cannot relicense `Cartridge.stl` itself.
