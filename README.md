@@ -97,6 +97,7 @@ upward, so the model is overhang-free by construction.
 | `stl/base-14up.stl` | 130.8 × 285.6 × 8 mm | 2 carriers, 14 cartridges per load |
 | `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load — still fits both machines |
 | `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand — holds 7 nose-down. See [Clear-coating](#clear-coating). |
+| `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer — a base row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
 
 * 0.2 mm layers, 3 perimeters, 15–20 % gyroid infill.
 * **Brim on the base.** It is a large thin plate and wants to lift at the corners;
@@ -180,6 +181,38 @@ clears the bench.
 
 ---
 
+## Displaying the casings
+
+For handing the fired casings out as party favours, the **display plate**
+(`display-plate.scad`, its own model) is a drawer organizer. It sits in a mini
+tool-chest drawer (8.5″ / 215.9 mm wide) and carries a single row of casings on
+their sides. Because that row sits in fixed cradles, more casings **nest in the
+valleys between them** and the pile self-stacks into an open pyramid — cannonball
+fashion. At the defaults it holds **17** across the base row.
+
+Two ideas keep the base tidy:
+
+* **Head-to-tail.** A tapered case body laid all one way wedges the stack and
+  collides at the rim. Laid head-to-tail, each pair meets fat-body-to-fat-body,
+  the pitch is the body diameter, and the valleys run level for the next layer.
+  The engraved nest numbers zig front/back down the plate — follow them and the
+  casings alternate without thinking.
+* **A loose fit, on purpose.** These come in and out by hand, so the cradle wraps
+  only the lower half (`sink = 0`) and a casing drops **straight in**. Clearance
+  is sized to swallow print shrink: a test print came out ~1 mm short on the
+  channel, so `axial_clr` leaves the channel comfortably longer than the casing.
+
+```bash
+openscad -D 'part="plate"' -o stl/display-plate-17up.stl display-plate.scad
+```
+
+If a casing still binds, it is a slop problem, not a geometry one — raise
+`round_clr` (radial) or `axial_clr` (length). Set `casing_len` to your measured
+brass; the render echoes the nominal channel length so you can check it against
+calipers. Prints flat, base down, **no supports** — the cradles open upward.
+
+---
+
 ## Parameters
 
 Everything is driven from the top of `bullet-jig.scad`.
@@ -244,7 +277,7 @@ and it costs you one line.
 
 | | |
 |---|---|
-| This jig (`bullet-jig.scad`, `spray-stand.scad`, `verify.scad`, `stl/`, docs) | [CC BY 4.0](LICENSE) |
+| This jig (`bullet-jig.scad`, `spray-stand.scad`, `display-plate.scad`, `verify.scad`, `stl/`, docs) | [CC BY 4.0](LICENSE) |
 | `Cartridge.stl` | CC BY 4.0, © is-serp — see Credits above |
 
 Use it, sell prints of it, modify it; just keep the attribution. To publish under

@@ -24,6 +24,8 @@ after marking; it is downstream of the base/carrier, not part of the assembly.
 - [registration.md](registration.md) - keying, fiducials, and why nominal
   coordinates must not be trusted
 - [spray-stand.md](spray-stand.md) - nose-down shoulder-seat stand for clear-coating
+- [display-plate.md](display-plate.md) - scalloped base for stacking finished
+  empty cases in a tool-chest drawer
 
 ## Part sizes
 
@@ -33,6 +35,7 @@ after marking; it is downstream of the base/carrier, not part of the assembly.
 | `stl/base-14up.stl` | 130.8 x 285.6 x 8 | `pockets_x=1, pockets_y=2` |
 | `stl/base-28up.stl` | 241.6 x 285.6 x 8 | `pockets_x=2, pockets_y=2` |
 | `stl/spray-stand-7nest.stl` | 185 x 33 x 39 | `nest_count = 7` (own `.scad`) |
+| `stl/display-plate-17up.stl` | 212.9 x 77.6 x 9.0 | 8.5" drawer -> 17 up, loose fit (own `.scad`) |
 
 ## Related
 

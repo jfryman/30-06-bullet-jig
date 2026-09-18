@@ -19,6 +19,7 @@ flowchart TB
     F --> F2["base-tray"]
     F --> F3["registration"]
     F --> F4["spray-stand"]
+    F --> F5["display-plate"]
     PR --> PR1["printing-and-machines"]
     PR --> PR2["laser-setup-and-batch"]
     PR --> PR3["verification"]
@@ -53,6 +54,7 @@ flowchart TB
 | [fixture/base-tray.md](fixture/base-tray.md) | Tray: pockets, keying, flange engraving |
 | [fixture/registration.md](fixture/registration.md) | Fiducials, the measure-don't-assume doctrine |
 | [fixture/spray-stand.md](fixture/spray-stand.md) | Nose-down shoulder-seat stand for clear-coating marked rounds |
+| [fixture/display-plate.md](fixture/display-plate.md) | Scalloped base plate; head-to-tail base row of cases that self-stacks |
 
 ## process/ - model to marked cartridges
 

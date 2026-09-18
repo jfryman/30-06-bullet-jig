@@ -58,6 +58,15 @@ Domain language for this project. Cartridge anatomy first, then fixture parts.
 - **Spray stand** - the companion fixture that holds a carrier's worth of rounds
   nose-down for clear-coating. See
   [fixture/spray-stand.md](fixture/spray-stand.md).
+- **Display plate** - a stand-alone display base (not a pipeline fixture) that
+  holds finished empty cases lying on their sides in a scalloped row inside a
+  tool-chest drawer. See [fixture/display-plate.md](fixture/display-plate.md).
+- **Head-to-tail** - laying cases in alternating directions so each adjacent
+  pair's radii sum to a constant along the tapered body; gives level valleys and
+  packs tighter than one direction (which would collide at the rim). The display
+  plate's base row is laid this way.
+- **Open pyramid** - the display stacking scheme: the plate fixes only the base
+  row; each further layer nests by gravity in the valleys of the layer below.
 - **Shoulder seat** - how the spray stand holds a round: dropped nose-first, the
   shoulder cone catches on a bore lip while the neck is guided in the bore below.
   Nose-down because nose-up (rim ring, no upper guide) is too tippy.
