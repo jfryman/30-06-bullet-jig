@@ -17,34 +17,38 @@ truncated at the case mouth).
 | `variant` | Footprint | Rows x count | STL |
 |---|---|---|---|
 | `drawer` | 8.5" drawer -> `drawer_w - 2*fit_clr` wide, depth snug to one row | 1 x 17 | `stl/display-plate-17up.stl` |
-| `top` | 10.75 x 6.75" chest top, minus `pullback` per edge | 2 x 22 | `stl/display-plate-top-2x22.stl` |
+| `top` | 10.75 x 5.75" chest top (`top_w` x `top_d`), minus `pullback` per edge | 2 x 21 | `stl/display-plate-top.stl` |
 
 Both footprints are sized to a **Husky 10 in. Mini Portable Tool Box with 2
 Drawers** (Home Depot Model # 690-004-0111, Internet # 339556529, Store SKU #
 1014987061): the drawer plate to its 8.5" drawers, the top plate to its
-10.75 x 6.75" lid.
+**10.75 x 5.75"** lid (measured by dry fit; the 6.75" first used was wrong).
 
-Every cradle dimension is identical between them; they differ only in outline,
-row count, and one packing choice: the drawer uses `stack_gap = 0.60` for finger
-room, the top uses `0.25` to make the row count. `drawer` is the default so a bare
-render reproduces the shipped drawer plate.
+`drawer` is the default so a bare render reproduces the shipped drawer plate.
+`stack_gap` differs (0.60 drawer for finger room, 0.25 top to make the count).
 
 ```mermaid
 flowchart TB
-    V{variant} -->|drawer| DR["8.5 in drawer<br/>1 row x 17"]
-    V -->|top| TP["10.75 x 6.75 in top<br/>2 rows x 22 = 44"]
-    DR --> CR["scalloped base row"]
-    TP --> CR
-    CR -->|valleys run level| NEST["further casings nest<br/>+9.95 mm per layer, open pyramid"]
+    V{variant} -->|drawer| DR["8.5 in drawer<br/>1 row x 17, nests into a pyramid"]
+    V -->|top| TP["10.75 x 5.75 in lid<br/>2 rows x 21 = 42, single layer"]
 ```
 
-### Why 22 per row on the top, not 23
+### The lid lip - why the top is 2 x 21
 
-The alternating head-to-tail pitch is `contact_d = 2 * r_centre` ~ 11.49 mm (the
-casings' fat-body cheeks touching). Across a 10.75" top pulled back a few mm, that
-packs a robust **22** per row. 23 only fits with the casings dead-touching
-(`stack_gap` 0), ~1.5 mm walls and ~2 mm pullback - a 0.18 mm margin that print
-swell eats. Decision (owner): 22 per row; 23 sits bare on the top without a plate.
+The lid closes over an inward **lip, `lid_lip = 8` mm on every edge**. Anything
+protruding under it stops the lid, so the casings are held `keepout = lid_lip +
+lip_clr` back from the lid opening (the plate itself still fills the well). Two
+asserts (`lip_gap_x`, `lip_gap_y`) prove the brass clears the lip; the `echo`
+reports the margin.
+
+- **Width (10.75", roomy):** count is maximised inside the keepout -> **21** per
+  row, clearing the lip by ~4.6 mm.
+- **Depth (5.75", tight):** two rows of 63.25 mm casings need 126.5 mm; the clear
+  span inside the lip is only ~130 mm. So the rows **pack tight** (`row_pitch =
+  casing_len + row_gap`, ~0.5 mm gap, channels may merge at the centre) and centre
+  on the lid, clearing the lip by only **~1.5 mm**. `pullback` is small (1 mm) so
+  the plate cannot slide far and eat that margin. A single row is the safe
+  fallback if the depth margin is unacceptable.
 
 ## Loose by design - the slop knobs
 
@@ -75,9 +79,11 @@ its mirror (`cradle_cut(cy)`), so a casing seats level whichever way it points.
 
 ## Layout
 
-- `count` is **maximised** across the width, then centred (`nest_cx`).
-- Rows are spread evenly front-to-back, each occupying `channel_len` of depth
-  (`row_cy(j)`, `row_pitch`); an assert stops the rows from overlapping.
+- `count` across the width: drawer maximises inside the side walls, top maximises
+  inside the lid keepout; then centred (`nest_cx`).
+- Rows front-to-back (`row_cy(j)`, `row_pitch`): the drawer's single row sits at
+  `end_margin`; the top's two rows pack tight (`casing_len + row_gap`) and centre
+  on the lid. An assert stops the casings themselves overlapping.
 - `plate_th = sink + (rim_r + round_clr) + floor` ~ 9.0 mm (thin, since sink 0).
 
 ## Markings (`markings` -> `drawer_markings` / `top_markings`)
@@ -85,22 +91,21 @@ its mirror (`cradle_cut(cy)`), so a casing seats level whichever way it points.
 - **Drawer**: casing numbers in the flat band beyond each casing's head end,
   alternating so they zig and cue the head-to-tail lay; `title` on the front
   face, `dedication` on the back.
-- **Top**: a memorial display - **no numbers**. Both `dedication` and
-  `dedication_edge` ("IN MEMORY OF ALLEN AKIN" / "SPIRIT IN THE SKY", the same
-  pair the funeral cartridges carried on opposite sides) are engraved stacked
-  down the centre, in the flat band between the two rows, reading looking down at
-  the piece.
+- **Top**: a memorial display - **no numbers**. The two rows nearly meet at the
+  centre on the short lid, so there is no centre band; `dedication` engraves on
+  the **front** margin and `dedication_edge` on the **back** ("IN MEMORY OF ALLEN
+  AKIN" / "SPIRIT IN THE SKY", the pair the funeral cartridges carried on opposite
+  sides). Engraved (recessed), so being near the edge does not foul the lid lip.
 
 ## Print
 
-Flat, base down, **no supports** - the cradles open upward. The `demo` part shows
-each row's base plus one nested layer.
+Flat, base down, **no supports** - the cradles open upward.
 
-A ready-to-print slicer project ships for the top variant:
-`stl/display-plate-top-2x22.3mf`, a PrusaSlicer project for the **Original Prusa
-XL** (multi-tool, 0.4 mm nozzle), sliced **multi-colour** so the centre
-dedication prints in a contrasting filament against the plate body. It carries
-the same `variant="top"` mesh; the `.stl` beside it is for any other printer.
+The top plate is a **multi-colour** print on the **Original Prusa XL** (multi-
+tool, 0.4 mm nozzle): plate body in one filament, the two engraved dedications in
+a contrasting colour. It is **not** shipped as a `.3mf` - the geometry has been
+revised (count and depth), so any saved slicer project would be stale; slice
+`stl/display-plate-top.stl` fresh and paint the engraving.
 
 ## Related
 

@@ -48,12 +48,23 @@ drawer_w = 215.9;
 fit_clr  = 1.5;
 
 /* [Chest-top footprint] */
-// The tool-chest top. 10 3/4" x 6 3/4".
+// The tool-chest top opening. 10 3/4" wide x 5 3/4" front-to-back (measured).
 top_w = 273.05;
-top_d = 171.45;
-// How far the plate is held back from each top edge, so it sits on without
-// overhanging. A "bit" pulled back per the spec.
-pullback = 3.0;
+top_d = 146.05;
+// How far the plate is held back from each top edge. Small, so the plate nearly
+// fills the well and cannot slide far - the depth is tight, so slide eats lip
+// clearance directly.
+pullback = 1.0;
+// Gap between the casing ends of the two rows where they meet near the centre.
+// Kept small: on the short top the rows must nearly touch to clear the lip.
+row_gap  = 0.5;
+// The lid closes over an inward LIP this wide on every edge. Any casing under it
+// stops the lid closing, so the casings are held this far (plus lip_clr) back
+// from the lid opening - even though the plate itself still fills the well.
+lid_lip = 8.0;
+// Extra safety inside the lip, to swallow the little the plate can slide in the
+// well. This much clear space is left past the lip on every edge.
+lip_clr = 4.0;
 // Rows laid front-to-back on the top.
 top_rows = 2;
 
@@ -153,14 +164,27 @@ pitch     = contact_d + stack_gap;         // centre-to-centre within a row
 mouth_hw  = sqrt(pow(rim_r + round_clr, 2) - sink * sink);
 first_cx  = edge_wall + mouth_hw;          // centre of the outermost cradle
 
-// Maximise the row: as many cradles as fit between the side walls, then centred.
-count     = floor((plate_w - 2 * first_cx) / pitch) + 1;
-row_span  = (count - 1) * pitch;
-margin_x  = (plate_w - row_span) / 2;      // >= first_cx by construction
+// On the top the casings must clear the lid lip on every edge; on the drawer the
+// only limit is the side wall. keepout is the clear zone the casings live in,
+// measured from the lid opening edge, and the field is centred on the lid.
+keepout   = lid_lip + lip_clr;
 
-// Rows are spread evenly front-to-back, each occupying channel_len of depth.
-row_pitch = rows > 1 ? (plate_depth - 2 * end_margin - channel_len) / (rows - 1) : 0;
-function row_cy(j) = end_margin + channel_len / 2 + j * row_pitch;
+// Row count across the width, centred on the lid.
+count     = is_top
+  ? floor((top_w - 2 * keepout - 2 * mouth_hw) / pitch) + 1
+  : floor((plate_w - 2 * first_cx) / pitch) + 1;
+row_span  = (count - 1) * pitch;
+margin_x  = (plate_w - row_span) / 2;      // outer cradle sits >= keepout in
+
+// Rows front-to-back. The top is short, so the rows pack tight (casings nearly
+// meeting near the centre) and centre on the lid to leave the most lip clearance
+// at the front and back; the drawer keeps its single row at end_margin.
+row_pitch = rows < 2 ? 0
+          : is_top ? casing_len + row_gap
+                   : (plate_depth - 2 * end_margin - channel_len) / (rows - 1);
+row0_cy   = is_top ? (plate_depth - (rows - 1) * row_pitch) / 2   // centred on lid
+                   : end_margin + channel_len / 2;
+function row_cy(j) = row0_cy + j * row_pitch;
 
 plate_th   = sink + (rim_r + round_clr) + floor;   // deepest cradle + solid floor
 surf_z     = plate_th;                             // top surface
@@ -175,8 +199,19 @@ assert(margin_x >= first_cx - eps,
        "outer cradle would breach the side wall - raise edge_wall or pull back more");
 assert(channel_len >= casing_len + 0.5,
        "channel is not comfortably longer than the casing - raise axial_clr");
-assert(rows < 2 || row_pitch >= channel_len - eps,
-       "rows overlap front-to-back - deepen the plate or drop a row");
+assert(rows < 2 || row_pitch >= casing_len - eps,
+       "rows overlap front-to-back - the casings would collide");
+
+// Lip clearance (top only): the brass must not reach under the lid lip on any
+// edge, or the lid will not close. The field is centred on the lid. Depth uses
+// the casing length (the channel caps may merge at the centre, but they are cut
+// into the surface and do not touch the lip).
+lip_gap_x = top_w / 2 - (row_span / 2 + mouth_hw);
+lip_gap_y = top_d / 2 - ((rows - 1) * row_pitch / 2 + casing_len / 2);
+assert(!is_top || lip_gap_x >= lid_lip,
+       "casings reach under the lid lip across the width - fewer per row or wider top");
+assert(!is_top || lip_gap_y >= lid_lip,
+       "casings reach under the lid lip front-to-back - the top is too short for two rows");
 
 // -----------------------------------------------------------------------------
 //  One cradle: the casing profile of revolution, plus its mirror, laid along Y
@@ -229,18 +264,22 @@ module markings() {
   else        drawer_markings();
 }
 
-// The top is a memorial display: no numbers, both dedications engraved down the
-// centre in the flat band between the two rows, where they read looking down at
-// the piece.
+// The top is a memorial display: no numbers. On the short top the two rows meet
+// near the centre, so the dedications move to the front and back margins - name
+// to the front, song to the back, the way his cartridges carried them on opposite
+// sides. Engraved (recessed), so being near the edge does not foul the lid lip.
 module top_markings() {
-  lines = [ for (s = [dedication, dedication_edge]) if (s != "") s ];
-  line_h = 8;   // centre-to-centre of the stacked lines, within the mid band
-  for (k = [0 : len(lines) - 1])
-    translate([plate_w / 2,
-               plate_depth / 2 + (k - (len(lines) - 1) / 2) * line_h,
-               surf_z - mark_depth])
+  front_band = row_cy(0) - channel_len / 2;                    // plate edge .. here
+  back_band  = row_cy(rows - 1) + channel_len / 2;             // here .. plate edge
+  if (dedication != "")
+    translate([plate_w / 2, front_band / 2, surf_z - mark_depth])
       linear_extrude(mark_depth + eps)
-        text(lines[k], size = 5.5, halign = "center", valign = "center",
+        text(dedication, size = 4, halign = "center", valign = "center",
+             font = "Liberation Sans:style=Bold");
+  if (dedication_edge != "")
+    translate([plate_w / 2, (back_band + plate_depth) / 2, surf_z - mark_depth])
+      linear_extrude(mark_depth + eps)
+        text(dedication_edge, size = 4, halign = "center", valign = "center",
              font = "Liberation Sans:style=Bold");
 }
 
@@ -315,3 +354,6 @@ echo(str("channel length       ", channel_len, " nominal   (casing ", casing_len
          ", clears by ", channel_len - casing_len, ")"));
 echo(str("row spacing          ", row_pitch, " front-to-back"));
 echo(str("layer rise           ", layer_rise(1), " mm per nested layer"));
+if (is_top)
+  echo(str("lid-lip clearance    ", lip_gap_x - lid_lip, " (width) / ",
+           lip_gap_y - lid_lip, " (depth) mm past the ", lid_lip, " mm lip"));

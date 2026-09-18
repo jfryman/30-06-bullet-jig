@@ -98,7 +98,7 @@ upward, so the model is overhang-free by construction.
 | `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load - still fits both machines |
 | `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand - holds 7 nose-down. See [Clear-coating](#clear-coating). |
 | `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer - one row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
-| `stl/display-plate-top-2x22.stl` | 267.1 × 165.5 × 9 mm | Chest-top display - two rows of 22. See [Displaying the casings](#displaying-the-casings). |
+| `stl/display-plate-top.stl` | 271.1 × 144.1 × 9 mm | Chest-top display - two rows of 21, multi-color. See [Displaying the casings](#displaying-the-casings). |
 
 * 0.2 mm layers, 3 perimeters, 15–20 % gyroid infill.
 * **Brim on the base.** It is a large thin plate and wants to lift at the corners;
@@ -193,17 +193,19 @@ fashion. One model, two footprints via `variant`:
 | `variant` | Fits | Holds |
 |---|---|---|
 | `drawer` (default) | Mini tool-chest **drawer**, 8.5″ wide | one row of **17** |
-| `top` | Tool-chest **top**, 10¾″ × 6¾″ | two rows of **22** |
+| `top` | Tool-chest **top**, 10¾″ × 5¾″ | two rows of **21** |
 
 Both are sized to a **[Husky 10 in. Mini Portable Tool Box with 2
 Drawers](https://www.homedepot.com/p/Husky-10-in-Army-Green-Metal-Mini-Portable-Tool-Box-with-2-Drawers-690-004-0111/339556529)**
 (Home Depot Model # 690-004-0111, Internet # 339556529, Store SKU # 1014987061):
-the `drawer` plate to its 8.5″-wide drawers, the `top` plate to its 10¾″ × 6¾″
+the `drawer` plate to its 8.5″-wide drawers, the `top` plate to its 10¾″ × 5¾″
 lid. For a different chest, measure yours and set the footprint at the top of
 `display-plate.scad`.
 
-*(23 per row only fits with the casings dead-touching and almost no border - they
-sit fine bare on the top at that point, so the plate holds a comfortable 22.)*
+*(The lid closes over an 8 mm inward lip on every edge; the top variant holds the
+casings back from it so the lid still shuts. On the 5¾″ (short) axis the two rows
+nearly meet in the middle to clear that lip - the depth is the tight dimension,
+so keep the plate centred in the well.)*
 
 Two ideas keep the base tidy:
 
@@ -211,24 +213,25 @@ Two ideas keep the base tidy:
   collides at the rim. Laid head-to-tail, each pair meets fat-body-to-fat-body,
   the pitch is the body diameter, and the valleys run level for the next layer.
   On the drawer the engraved nest numbers zig front/back to cue the lay; the top
-  drops the numbers and instead carries **IN MEMORY OF ALLEN AKIN** and **SPIRIT
-  IN THE SKY** engraved down its centre, between the two rows.
+  drops the numbers and instead carries **IN MEMORY OF ALLEN AKIN** on the front
+  margin and **SPIRIT IN THE SKY** on the back - the way his cartridges carried
+  them on opposite sides.
 * **A loose fit, on purpose.** These come in and out by hand, so the cradle wraps
   only the lower half (`sink = 0`) and a casing drops **straight in**. Clearance
   is sized to swallow print shrink: a test print came out ~1 mm short on the
   channel, so `axial_clr` leaves the channel comfortably longer than the casing.
 
 ```bash
-openscad -D 'part="plate"'                     -o stl/display-plate-17up.stl    display-plate.scad
-openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top-2x22.stl display-plate.scad
+openscad -D 'part="plate"'                     -o stl/display-plate-17up.stl  display-plate.scad
+openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top.stl   display-plate.scad
 ```
 
-For the top plate, a ready-to-print slicer project is included:
-**`stl/display-plate-top-2x22.3mf`**, sliced for the **Original Prusa XL**
-(multi-tool, 0.4 mm nozzle) as a **multi-color** print - the plate body in one
-filament and the centre dedication in a contrasting colour, so *In Memory of
-Allen Akin* and *Spirit in the Sky* read against the plate. Slice the `.stl` for
-any other printer.
+The top plate is a **multi-color** print on the **Original Prusa XL** - the plate
+body in one filament and the two engraved dedications in a contrasting colour, so
+*In Memory of Allen Akin* and *Spirit in the Sky* read against the plate. Slice
+`stl/display-plate-top.stl` yourself and paint the engraving; it is not shipped as
+a `.3mf` because the geometry has been revised and any saved project would be
+stale.
 
 If a casing still binds, it is a slop problem, not a geometry one - raise
 `round_clr` (radial) or `axial_clr` (length). Set `casing_len` to your measured

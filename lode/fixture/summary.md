@@ -36,7 +36,7 @@ after marking; it is downstream of the base/carrier, not part of the assembly.
 | `stl/base-28up.stl` | 241.6 x 285.6 x 8 | `pockets_x=2, pockets_y=2` |
 | `stl/spray-stand-7nest.stl` | 185 x 33 x 39 | `nest_count = 7` (own `.scad`) |
 | `stl/display-plate-17up.stl` | 212.9 x 77.6 x 9.0 | 8.5" drawer -> 17 up, loose fit (own `.scad`) |
-| `stl/display-plate-top-2x22.stl` | 267.1 x 165.5 x 9.0 | 10.75x6.75" chest top -> 2 rows of 22 (`variant="top"`) |
+| `stl/display-plate-top.stl` | 271.1 x 144.1 x 9.0 | 10.75x5.75" chest top -> 2 rows of 21, multi-color (`variant="top"`) |
 
 ## Related
 
