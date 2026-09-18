@@ -195,6 +195,11 @@ fashion. One model, two footprints via `variant`:
 | `drawer` (default) | Mini tool-chest **drawer**, 8.5″ wide | one row of **17** |
 | `top` | Tool-chest **top**, 10¾″ × 6¾″ | two rows of **22** |
 
+Both are sized to a **Husky 10 in. Mini 2-Drawer** tool chest (Home Depot Scan
+Code 840146900044): the `drawer` plate to its 8.5″-wide drawers, the `top` plate
+to its 10¾″ × 6¾″ lid. For a different chest, measure yours and set the footprint
+at the top of `display-plate.scad`.
+
 *(23 per row only fits with the casings dead-touching and almost no border - they
 sit fine bare on the top at that point, so the plate holds a comfortable 22.)*
 
