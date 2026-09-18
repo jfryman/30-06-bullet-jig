@@ -19,9 +19,10 @@ truncated at the case mouth).
 | `drawer` | 8.5" drawer -> `drawer_w - 2*fit_clr` wide, depth snug to one row | 1 x 17 | `stl/display-plate-17up.stl` |
 | `top` | 10.75 x 6.75" chest top, minus `pullback` per edge | 2 x 22 | `stl/display-plate-top-2x22.stl` |
 
-Both footprints are sized to a **Husky 10 in. Mini 2-Drawer** tool chest (Home
-Depot Scan Code 840146900044): the drawer plate to its 8.5" drawers, the top
-plate to its 10.75 x 6.75" lid.
+Both footprints are sized to a **Husky 10 in. Mini Portable Tool Box with 2
+Drawers** (Home Depot Model # 690-004-0111, Internet # 339556529, Store SKU #
+1014987061): the drawer plate to its 8.5" drawers, the top plate to its
+10.75 x 6.75" lid.
 
 Every cradle dimension is identical between them; they differ only in outline,
 row count, and one packing choice: the drawer uses `stack_gap = 0.60` for finger
