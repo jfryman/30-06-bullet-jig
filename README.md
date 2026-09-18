@@ -97,7 +97,8 @@ upward, so the model is overhang-free by construction.
 | `stl/base-14up.stl` | 130.8 × 285.6 × 8 mm | 2 carriers, 14 cartridges per load |
 | `stl/base-28up.stl` | 241.6 × 285.6 × 8 mm | 4 carriers, 28 per load — still fits both machines |
 | `stl/spray-stand-7nest.stl` | 185 × 33 × 39 mm | Clear-coat drying stand — holds 7 nose-down. See [Clear-coating](#clear-coating). |
-| `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer — a base row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
+| `stl/display-plate-17up.stl` | 212.9 × 77.6 × 9 mm | Drawer organizer — one row of 17 casings that others stack on. See [Displaying the casings](#displaying-the-casings). |
+| `stl/display-plate-top-2x22.stl` | 267.1 × 165.5 × 9 mm | Chest-top display — two rows of 22. See [Displaying the casings](#displaying-the-casings). |
 
 * 0.2 mm layers, 3 perimeters, 15–20 % gyroid infill.
 * **Brim on the base.** It is a large thin plate and wants to lift at the corners;
@@ -184,11 +185,18 @@ clears the bench.
 ## Displaying the casings
 
 For handing the fired casings out as party favours, the **display plate**
-(`display-plate.scad`, its own model) is a drawer organizer. It sits in a mini
-tool-chest drawer (8.5″ / 215.9 mm wide) and carries a single row of casings on
-their sides. Because that row sits in fixed cradles, more casings **nest in the
+(`display-plate.scad`, its own model) is an organizer that carries casings on
+their sides. Because a row sits in fixed cradles, more casings **nest in the
 valleys between them** and the pile self-stacks into an open pyramid — cannonball
-fashion. At the defaults it holds **17** across the base row.
+fashion. One model, two footprints via `variant`:
+
+| `variant` | Fits | Holds |
+|---|---|---|
+| `drawer` (default) | Mini tool-chest **drawer**, 8.5″ wide | one row of **17** |
+| `top` | Tool-chest **top**, 10¾″ × 6¾″ | two rows of **22** |
+
+*(23 per row only fits with the casings dead-touching and almost no border — they
+sit fine bare on the top at that point, so the plate holds a comfortable 22.)*
 
 Two ideas keep the base tidy:
 
@@ -203,7 +211,8 @@ Two ideas keep the base tidy:
   channel, so `axial_clr` leaves the channel comfortably longer than the casing.
 
 ```bash
-openscad -D 'part="plate"' -o stl/display-plate-17up.stl display-plate.scad
+openscad -D 'part="plate"'                     -o stl/display-plate-17up.stl    display-plate.scad
+openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top-2x22.stl display-plate.scad
 ```
 
 If a casing still binds, it is a slop problem, not a geometry one — raise
