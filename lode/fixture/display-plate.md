@@ -74,9 +74,17 @@ its mirror (`cradle_cut(cy)`), so a casing seats level whichever way it points.
 - Rows are spread evenly front-to-back, each occupying `channel_len` of depth
   (`row_cy(j)`, `row_pitch`); an assert stops the rows from overlapping.
 - `plate_th = sink + (rim_r + round_clr) + floor` ~ 9.0 mm (thin, since sink 0).
-- Head-mark numbers sit in the flat band just beyond each casing's head end, so
-  outward heads land in an edge margin and inward heads (top variant) in the band
-  between the two rows.
+
+## Markings (`markings` -> `drawer_markings` / `top_markings`)
+
+- **Drawer**: casing numbers in the flat band beyond each casing's head end,
+  alternating so they zig and cue the head-to-tail lay; `title` on the front
+  face, `dedication` on the back.
+- **Top**: a memorial display - **no numbers**. Both `dedication` and
+  `dedication_edge` ("IN MEMORY OF ALLEN AKIN" / "SPIRIT IN THE SKY", the same
+  pair the funeral cartridges carried on opposite sides) are engraved stacked
+  down the centre, in the flat band between the two rows, reading looking down at
+  the piece.
 
 ## Print
 

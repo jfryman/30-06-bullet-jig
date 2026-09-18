@@ -90,9 +90,13 @@ number_nests = true;
 
 /* [Dedication] */
 // Engraved into the plate. Set to "" to omit. Parametric so anyone reusing this
-// can put their own words here.
-title      = "DISPLAY BASE  -  .30-06  -  HEAD TO TAIL";
-dedication = "IN MEMORY OF ALLEN AKIN";
+// can put their own words here. His cartridges carried his name on one side and
+// the song on the other; on the top variant both are engraved down the centre,
+// between the two rows. On the drawer variant, `title` runs on the front face and
+// `dedication` on the back.
+title           = "DISPLAY BASE  -  .30-06  -  HEAD TO TAIL";
+dedication      = "IN MEMORY OF ALLEN AKIN";
+dedication_edge = "SPIRIT IN THE SKY";
 
 /* [Hidden] */
 $fn = 64;
@@ -221,14 +225,33 @@ module plate() {
 }
 
 module markings() {
+  if (is_top) top_markings();
+  else        drawer_markings();
+}
+
+// The top is a memorial display: no numbers, both dedications engraved down the
+// centre in the flat band between the two rows, where they read looking down at
+// the piece.
+module top_markings() {
+  lines = [ for (s = [dedication, dedication_edge]) if (s != "") s ];
+  line_h = 8;   // centre-to-centre of the stacked lines, within the mid band
+  for (k = [0 : len(lines) - 1])
+    translate([plate_w / 2,
+               plate_depth / 2 + (k - (len(lines) - 1) / 2) * line_h,
+               surf_z - mark_depth])
+      linear_extrude(mark_depth + eps)
+        text(lines[k], size = 5.5, halign = "center", valign = "center",
+             font = "Liberation Sans:style=Bold");
+}
+
+module drawer_markings() {
   // Casing number in the flat band just beyond the end where that casing's HEAD
-  // goes - alternating within a row so the numbers zig and the row lays itself
-  // head-to-tail. Works for every row: outward heads land in an edge margin,
-  // inward heads in the band between rows.
+  // goes - alternating within the row so the numbers zig and the row lays itself
+  // head-to-tail.
   if (number_nests)
-    for (j = [0 : rows - 1], i = [0 : count - 1]) {
+    for (i = [0 : count - 1]) {
       head_front = (i % 2 == 0);
-      hy = row_cy(j) + (head_front ? -channel_len / 2 : channel_len / 2);
+      hy = row_cy(0) + (head_front ? -channel_len / 2 : channel_len / 2);
       ny = hy + (head_front ? -end_margin / 2 : end_margin / 2);
       translate([nest_cx(i), ny, surf_z - mark_depth])
         linear_extrude(mark_depth + eps)
@@ -236,7 +259,7 @@ module markings() {
                font = "Liberation Sans:style=Bold");
     }
 
-  // Title along the front vertical face.
+  // Title along the front vertical face, dedication along the back.
   if (title != "")
     translate([plate_w / 2, mark_depth, plate_th / 2])
       rotate([90, 0, 0])
@@ -244,7 +267,6 @@ module markings() {
           text(title, size = 4.5, halign = "center", valign = "center",
                font = "Liberation Sans:style=Bold");
 
-  // Dedication along the back vertical face.
   if (dedication != "")
     translate([plate_w / 2, plate_depth - mark_depth, plate_th / 2])
       rotate([90, 0, 180])

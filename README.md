@@ -203,8 +203,9 @@ Two ideas keep the base tidy:
 * **Head-to-tail.** A tapered case body laid all one way wedges the stack and
   collides at the rim. Laid head-to-tail, each pair meets fat-body-to-fat-body,
   the pitch is the body diameter, and the valleys run level for the next layer.
-  The engraved nest numbers zig front/back down the plate — follow them and the
-  casings alternate without thinking.
+  On the drawer the engraved nest numbers zig front/back to cue the lay; the top
+  drops the numbers and instead carries **IN MEMORY OF ALLEN AKIN** and **SPIRIT
+  IN THE SKY** engraved down its centre, between the two rows.
 * **A loose fit, on purpose.** These come in and out by hand, so the cradle wraps
   only the lower half (`sink = 0`) and a casing drops **straight in**. Clearance
   is sized to swallow print shrink: a test print came out ~1 mm short on the
