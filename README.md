@@ -226,12 +226,12 @@ openscad -D 'part="plate"'                     -o stl/display-plate-17up.stl  di
 openscad -D 'part="plate"' -D 'variant="top"'  -o stl/display-plate-top.stl   display-plate.scad
 ```
 
-The top plate is a **multi-color** print on the **Original Prusa XL** - the plate
-body in one filament and the two engraved dedications in a contrasting colour, so
-*In Memory of Allen Akin* and *Spirit in the Sky* read against the plate. Slice
-`stl/display-plate-top.stl` yourself and paint the engraving; it is not shipped as
-a `.3mf` because the geometry has been revised and any saved project would be
-stale.
+For the top plate, a ready-to-print slicer project is included:
+**`stl/display-plate-top.3mf`**, sliced for the **Original Prusa XL** (multi-tool,
+0.4 mm nozzle) as a **multi-color** print - the plate body in one filament and the
+two engraved dedications in a contrasting colour, so *In Memory of Allen Akin* and
+*Spirit in the Sky* read against the plate. Slice `stl/display-plate-top.stl` for
+any other printer.
 
 If a casing still binds, it is a slop problem, not a geometry one - raise
 `round_clr` (radial) or `axial_clr` (length). Set `casing_len` to your measured

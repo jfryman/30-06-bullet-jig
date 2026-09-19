@@ -101,11 +101,11 @@ its mirror (`cradle_cut(cy)`), so a casing seats level whichever way it points.
 
 Flat, base down, **no supports** - the cradles open upward.
 
-The top plate is a **multi-colour** print on the **Original Prusa XL** (multi-
-tool, 0.4 mm nozzle): plate body in one filament, the two engraved dedications in
-a contrasting colour. It is **not** shipped as a `.3mf` - the geometry has been
-revised (count and depth), so any saved slicer project would be stale; slice
-`stl/display-plate-top.stl` fresh and paint the engraving.
+A ready-to-print slicer project ships for the top variant:
+`stl/display-plate-top.3mf`, a PrusaSlicer project for the **Original Prusa XL**
+(multi-tool, 0.4 mm nozzle), sliced **multi-colour** (cream body, orange
+lettering) so the two dedications print in a contrasting filament. It carries the
+corrected `variant="top"` mesh; the `.stl` beside it is for any other printer.
 
 ## Related
 
