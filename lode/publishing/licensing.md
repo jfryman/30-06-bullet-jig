@@ -11,7 +11,7 @@ flowchart TB
 
 | Covers | Licence |
 |---|---|
-| `bullet-jig.scad`, `verify.scad`, `stl/`, `docs/` | CC BY 4.0 |
+| `bullet-jig.scad`, `spray-stand.scad`, `display-plate.scad`, `verify.scad`, `stl/`, `docs/` | CC BY 4.0 |
 | `Cartridge.stl` | CC BY 4.0, (c) is-serp |
 
 `LICENSE` holds the canonical CC BY 4.0 legal text, fetched from

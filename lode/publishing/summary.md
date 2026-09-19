@@ -19,13 +19,16 @@ remote cannot authenticate non-interactively.
 ## Repo layout
 
 ```
-bullet-jig.scad   parametric model, base + carrier
-verify.scad       automated fit test, must render empty
-Cartridge.stl     reference mesh (third-party, CC BY 4.0)
-stl/              carrier-7nest, base-14up, base-28up
-docs/             renders (assembly, base plan, carrier)
-lode/             this knowledge base (lode/tmp/ is git-ignored)
-LICENSE           CC BY 4.0
+bullet-jig.scad     parametric marking jig, base + carrier
+spray-stand.scad    clear-coat drying stand (own model)
+display-plate.scad  casing display, drawer + chest-top variants (own model)
+verify.scad         automated fit test, must render empty
+Cartridge.stl       reference mesh (third-party, CC BY 4.0)
+stl/                carrier-7nest, base-14up, base-28up, spray-stand-7nest,
+                    display-plate-17up, display-plate-top (+ .3mf for the XL)
+docs/               renders (assembly, base plan, carrier)
+lode/               this knowledge base (lode/tmp/ is git-ignored)
+LICENSE             CC BY 4.0
 ```
 
 ## Related

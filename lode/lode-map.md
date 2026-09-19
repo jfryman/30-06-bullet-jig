@@ -54,7 +54,7 @@ flowchart TB
 | [fixture/base-tray.md](fixture/base-tray.md) | Tray: pockets, keying, flange engraving |
 | [fixture/registration.md](fixture/registration.md) | Fiducials, the measure-don't-assume doctrine |
 | [fixture/spray-stand.md](fixture/spray-stand.md) | Nose-down shoulder-seat stand for clear-coating marked rounds |
-| [fixture/display-plate.md](fixture/display-plate.md) | Scalloped base plate; head-to-tail base row of cases that self-stacks |
+| [fixture/display-plate.md](fixture/display-plate.md) | Scalloped casing display; drawer and chest-top (memorial) variants, head-to-tail rows |
 
 ## process/ - model to marked cartridges
 

@@ -22,7 +22,7 @@ truncated at the case mouth).
 Both footprints are sized to a **Husky 10 in. Mini Portable Tool Box with 2
 Drawers** (Home Depot Model # 690-004-0111, Internet # 339556529, Store SKU #
 1014987061): the drawer plate to its 8.5" drawers, the top plate to its
-**10.75 x 5.75"** lid (measured by dry fit; the 6.75" first used was wrong).
+**10.75 x 5.75"** lid (measured off the real chest).
 
 `drawer` is the default so a bare render reproduces the shipped drawer plate.
 `stack_gap` differs (0.60 drawer for finger room, 0.25 top to make the count).

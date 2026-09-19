@@ -15,10 +15,11 @@ machines are an xTool P2 (600 x 308 bed) and a Prusa XL (360 x 360). A separate
 carrier's worth of marked rounds nose-down, hung by the shoulder in guide bores,
 so a rotating pass of clear coat covers both marked faces at once. A stand-alone
 **display plate** (`display-plate.scad`) is the end of the line: a scalloped base
-sized to a 8.5 in tool-chest drawer that holds finished empty cases head-to-tail
-in a single row so the pile self-stacks into an open pyramid. The work is
-published at github.com/jfryman/30-06-bullet-jig under CC BY 4.0, and is
-dedicated to Allen Akin.
+that holds finished empty casings on their sides, head-to-tail, so the pile stays
+tidy. It has two footprints for a Husky 10 in. mini chest - a drawer organiser
+(one row of 17) and a memorial lid-top (two rows of 21, engraved in Allen's
+memory). The work is published at github.com/jfryman/30-06-bullet-jig under CC BY
+4.0, and is dedicated to Allen Akin.
 
 See [lode-map.md](lode-map.md) for the full index.
 
