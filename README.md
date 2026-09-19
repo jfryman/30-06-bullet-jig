@@ -106,11 +106,6 @@ upward, so the model is overhang-free by construction.
 * Print carriers exactly as modelled, cradles facing up.
 * PLA is fine - nothing here gets hot. PETG if you would rather it not scorch.
 
-Before committing a batch, work through
-**[docs/acceptance-check.md](docs/acceptance-check.md)** on the first carrier and
-base off the printer. It is six checks, ordered so the cheap ones gate the
-expensive ones.
-
 Both bases fit the Prusa XL's 360 × 360 bed and the xTool P2's 600 × 308 bed. On
 the P2 the cartridges run along the 600 mm axis, so the text rasters along the
 fast axis and the nests spread across the 308 mm axis.

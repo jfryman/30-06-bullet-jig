@@ -6,9 +6,9 @@ Current open work. Delete items as they close; this file is state, not history.
 
 - **First-article print and check.** One `carrier-7nest` and one `base-14up` are
   being printed to validate fit and levelness before committing to a batch. The
-  check procedure is `docs/acceptance-check.md` in the repo, summarised in
-  [../process/verification.md](../process/verification.md). Awaiting caliper
-  readings for seated apex height and the nest 1 -> nest 7 tick span.
+  check procedure is in [../process/verification.md](../process/verification.md).
+  Awaiting caliper readings for seated apex height and the nest 1 -> nest 7 tick
+  span.
 
 - **Spray-stand first article.** `stl/spray-stand-7nest.stl` exists but is
   unprinted. Print one and confirm a round drops nose-first and hangs by the

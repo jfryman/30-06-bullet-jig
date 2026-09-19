@@ -34,9 +34,7 @@ sideways into neighbouring nests rendered as a perfectly valid manifold solid.
 
 ## First article, on the printed parts
 
-Full procedure lives in `docs/acceptance-check.md` in the repo (it is operator
-documentation, so it ships with the model rather than living only here). Six
-checks, ordered so cheap ones gate expensive ones:
+Six checks on the printed parts, ordered so cheap ones gate expensive ones:
 
 1. **Base flat?** On glass. If it rocks, stop - everything below is referenced
    off this plane.

@@ -23,7 +23,7 @@ bullet-jig.scad   parametric model, base + carrier
 verify.scad       automated fit test, must render empty
 Cartridge.stl     reference mesh (third-party, CC BY 4.0)
 stl/              carrier-7nest, base-14up, base-28up
-docs/             renders + acceptance-check.md
+docs/             renders (assembly, base plan, carrier)
 lode/             this knowledge base (lode/tmp/ is git-ignored)
 LICENSE           CC BY 4.0
 ```
